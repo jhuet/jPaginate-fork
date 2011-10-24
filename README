@@ -1,2 +1,16 @@
 Adding "first" and "last" options for i18n.
 Default values are "First" and "Last" respectively.
+
+Adding 5 new options : {
+    first_last_display : true
+    page_choice_display : false,
+    item_count_display : true,
+    item_count : 10,
+    item_count_total : 0
+};
+This adds 3 things :
+- a way to hide or show the "first" and "last" buttons
+- a way to manually set the page # you want to access
+- a way to manually specify the number of items you want to display by page (and optionally displaying the total number of items). Usefull for AJAX calls.
+
+Also now, a click on "first" or "last" or on the actual selected page won't do any action (credits to Aleksandar for the idea).
