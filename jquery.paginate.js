@@ -8,6 +8,9 @@
             $.fn.draw(o,$this,selectedpage);
         });
     };
+
+    var version = '1.3.0';
+
     var outsidewidth_tmp = 0;
     var insidewidth      = 0;
     var bName = navigator.appName;
@@ -29,6 +32,7 @@
         rotate                  : true,
         images                  : true,
         mouse                   : 'slide',
+        first_last_display      : true,
         page_choice_display     : false,
         item_count_display      : true,
         item_count              : 10,
@@ -56,6 +60,9 @@
             var nextclass	    = 'jPag-next';
         }
         var _first = $(document.createElement('a')).addClass('jPag-first').html(o.first);
+        if (o.first_last_display == false) {
+            _first.hide();
+        }
 
         if(o.rotate){
             if(o.images) var _rotleft  = $(document.createElement('span')).addClass(spreviousclass);
@@ -90,6 +97,9 @@
         }
 
         var _last = $(document.createElement('a')).addClass('jPag-last').html(o.last);
+        if (o.first_last_display == false) {
+            _last.hide();
+        }
         var _divwrapright = $(document.createElement('div')).addClass('jPag-control-front');
         _divwrapright.append(_rotright).append(_last);
 
