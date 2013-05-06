@@ -19,9 +19,11 @@
         var ver = "ie7";
 
     $.fn.paginate.defaults = {
-        count			: 5,
-        start			: 1,
-        display			: 5,
+        count                   : 5,	// Number of items to load
+        start                   : 1,	// Page highlighted when loaded. Must be between min and min+(count+increment)
+        display                 : 5,	// Number of items to show
+        min                     : 1,	// Minimum value shown in first page
+        increment               : 1,	// Page numbers are incremented by this (-1 to go decreasingly)
         border                  : true,
         border_color            : '#fff',
         text_color              : '#8cc59d',
@@ -77,8 +79,9 @@
         var c = (o.display - 1) / 2;
         var first = selectedpage - c;
         var selobj;
-        for(var i = 0; i < o.count; i++){
-            var val = i+1;
+				var max = o.min + (o.count*o.increment);
+        for(var i = o.min; i != max; i+=o.increment){
+            var val = i;
             if(val == selectedpage){
                 var _obj = $(document.createElement('li')).html('<span class="jPag-current">'+val+'</span>');
                 selobj = _obj;

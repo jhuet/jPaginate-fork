@@ -1,12 +1,19 @@
+Based off Cory's AKA @tymdev's jPaginate:
+
+http://tympanus.net/codrops/author/cody/
+http://tympanus.net/codrops/2009/11/17/jpaginate-a-fancy-jquery-pagination-plugin/
+
+
+
 Adding "first" and "last" options for i18n.
 Default values are "First" and "Last" respectively.
 
 Adding 5 new options : {
-    first_last_display : true
-    page_choice_display : false,
-    item_count_display : true,
-    item_count : 10,
-    item_count_total : 0
+	first_last_display : true
+	page_choice_display : false,
+	item_count_display : true,
+	item_count : 10,
+	item_count_total : 0
 };
 This adds 3 things :
 - a way to hide or show the "first" and "last" buttons
@@ -14,3 +21,14 @@ This adds 3 things :
 - a way to manually specify the number of items you want to display by page (and optionally displaying the total number of items). Usefull for AJAX calls.
 
 Also now, a click on "first" or "last" or on the actual selected page won't do any action (credits to Aleksandar for the idea).
+
+
+The "min" and "increment" options allow for starting off a number different than 1. For example, if you want to show years from 2012 to 2002, use options like these:
+
+{
+	count     : 10,
+	start     : 2012,
+	display   : 7,
+	min       : 2012,
+	increment : -1
+}
